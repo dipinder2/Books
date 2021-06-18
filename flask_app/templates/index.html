@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        integrity="undefined" crossorigin="anonymous">
+    <style>
+        .space{
+            display:flex;
+            justify-content:space-around
+        }
+    </style>
+</head>
+<body>
+    <div class="space">
+        <form class="form-group" action="/add/author" method="post">
+            <h1>New Author</h1>
+            <p>
+                Name:
+                <input class="form-control" type="text" name="name" id="">
+            </p>
+            <p>
+                <input class="btn btn-primary" type="submit" value="Add Author">
+            </p>
+        </form>
+        <div>
+            <h1>All Authors</h1>
+            <table class=".table-sm">
+                {% for author in authors %}
+                    <tr class="table-light">
+                        <td><a style="text-decoration:none; color:black" href="/author/{{author.id}}">{{author.name}}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <a href="/books" class="btn btn-success">Add a Book</a>
+        </div>
+    </div>
+</body>
+</html>
